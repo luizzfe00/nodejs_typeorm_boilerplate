@@ -1,7 +1,6 @@
 require('dotenv').config()
 import "reflect-metadata"
 import { DataSource } from "typeorm"
-import { User } from "../entities/User"
 import config from 'config';
 
 const postgresConfig = config.get<{
