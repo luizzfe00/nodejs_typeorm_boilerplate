@@ -4,7 +4,7 @@ import cors from 'cors';
 import logger from 'morgan';
 import { AppDataSource } from '../utils/data-source';
 import validateEnv from '../utils/validateEnv';
-import config from 'config';
+import { Routers } from '../routes';
 
 
 export default class App {
@@ -15,14 +15,15 @@ export default class App {
             .then(async () => {
                 validateEnv();
 
-                const app = express();
+                const app: express.Application = express();
+                const router = new Routers();
                 app.use(express.urlencoded({ extended: false }));
                 app.use(json());
                 app.use(cors());
                 app.use(logger('dev'));
 
                 // Cookie Parser
-                // Routes
+                app.use(router.routes);
             })
             .catch((error => console.log(error)));
 

@@ -1,13 +1,20 @@
-import { Router } from "express";
-import errorMiddleware from "../middlewares/error.middleware";
+import { Router } from 'express';
+import ApiRoutes from './api';
 
 export class Routers {
-    static route(): Router {
-        const router = Router();
+    private _router: Router;
 
-        router.use('/');
+    constructor() {
+        this._router = Router();
+        this.route();
+    }
 
-        router.use(errorMiddleware);
-        return router;
+
+    private route(): void {
+        this._router.use('/api', ApiRoutes);
+    }
+
+    get routes(): Router {
+        return this._router;
     }
 }
