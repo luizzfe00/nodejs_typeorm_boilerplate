@@ -4,10 +4,13 @@ module.exports = {
   testEnvironment: 'node',
   clearMocks: true,
   coverageProvider: 'v8',
-  moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json"],
-  roots: ["<rootDir>/src"],
-  testMatch: ["**__/tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json'],
+  roots: ['<rootDir>/src'],
+  testMatch: ['**__/tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
   transform: {
-    "^.+\\.(ts|tsx)$": "ts-jest"
-  }
+    '^.+\\.(ts|tsx)$': 'ts-jest',
+  },
+  moduleNameMapper: {
+    '@exmpl/(.*)': '<rootDir>/src/$1',
+  },
 };

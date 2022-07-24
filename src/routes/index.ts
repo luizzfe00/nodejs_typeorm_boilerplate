@@ -2,19 +2,18 @@ import { Router } from 'express';
 import ApiRoutes from './api';
 
 export class Routers {
-    private _router: Router;
+  private _router: Router;
 
-    constructor() {
-        this._router = Router();
-        this.route();
-    }
+  constructor() {
+    this._router = Router();
+    this.route();
+  }
 
+  private route(): void {
+    this._router.use('/api', ApiRoutes);
+  }
 
-    private route(): void {
-        this._router.use('/api', ApiRoutes);
-    }
-
-    get routes(): Router {
-        return this._router;
-    }
+  get routes(): Router {
+    return this._router;
+  }
 }

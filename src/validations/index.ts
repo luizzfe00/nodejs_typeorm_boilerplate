@@ -1,2 +1,2 @@
-export * from './id.validation'
-export * from './user.validation'
+export * from './id.validation';
+export * from './user.validation';
